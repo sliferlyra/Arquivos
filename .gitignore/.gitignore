@@ -1,0 +1,15 @@
+					<button left="670" top="120" width="90" height="30" text="JOGAR">
+						<event name="onClick">
+							local rolagem = rrpg.interpretarRolagem(self.boxDetalhesDoItem.node.campoJogada);
+							if not rolagem.possuiAlgumDado then
+								rolagem = rrpg.interpretarRolagem("2d6");
+								end;
+							local mesaPersonagem = rrpg.getMesaDe(sheet);
+							local Nome = self.boxDetalhesDoItem.node.campoTitulo or "Habilidade";
+							local Difi = self.boxDetalhesDoItem.node.campoDificuldade or 0;
+							local Mana = self.boxDetalhesDoItem.node.campoCustoMana or 0;
+							if mesaPersonagem ~= nil then
+								mesaPersonagem.chat:rolarDados(rolagem, " " .. Nome .. " | Dificuldade: " .. Difi .. " | Gasto de Mana: " .. Mana);
+							end;
+						</event>
+					</button>
